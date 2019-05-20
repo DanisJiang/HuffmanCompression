@@ -18,5 +18,22 @@
     <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="FrequencyAnalysis.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="encode.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="decode.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="encode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="decode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
