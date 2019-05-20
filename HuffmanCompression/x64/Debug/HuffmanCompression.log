@@ -1,0 +1,7 @@
+﻿  decode.c
+  encode.c
+  FrequencyAnalysis.c
+  main.c
+c:\users\danis\source\repos\danisjiang\huffmancompression\huffmancompression\main.c(38): warning C4129: “H”: 不可识别的字符转义序列
+  正在生成代码...
+  HuffmanCompression.vcxproj -> C:\Users\danis\Source\Repos\DanisJiang\HuffmanCompression\HuffmanCompression\x64\Debug\HuffmanCompression.exe
