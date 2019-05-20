@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 void error()
 {
 
-	printf("\nHuffmanCompression Beta 0.0.1\n");
+	printf("\nHuffmanCompression Beta 0.0.0\n");
 	printf("Author: Danis Jiang\n");
 	printf("https://github.com/DanisJiang/HuffmanCompression.git \n\n");
 	printf("Usage: .\HuffmanCompression.exe [OPTIONS] [INPUT FILE] [OUTPUT FILE]\n\n");
