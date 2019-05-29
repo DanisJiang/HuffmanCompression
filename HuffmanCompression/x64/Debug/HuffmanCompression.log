@@ -1,8 +1,2 @@
 ﻿  encode.c
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(12): warning C4013: “exit”未定义；假设外部返回 int
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(31): warning C4133: “函数”: 从“FILE *”到“char *”的类型不兼容
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(31): warning C4133: “函数”: 从“char *”到“FILE *”的类型不兼容
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(33): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(40): warning C4716: “frequency”: 必须返回一个值
-c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\encode.c(35): warning C4716: “readFile”: 必须返回一个值
   HuffmanCompression.vcxproj -> C:\Users\DanisJiang\Source\Repos\DanisJiang\HuffmanCompression\HuffmanCompression\x64\Debug\HuffmanCompression.exe

@@ -1,6 +1,13 @@
 ﻿#pragma once
+typedef struct Contents
+{
+	int size;
+	char* pt;
+	int* frequency;
+}Contents;
+
 void encode(char *argv[]);
 
-int* frequency(char* c);
+int* frequency(Contents* content);
 
-int readFile(FILE *fp, char* s);
+Contents* readFile(FILE *fp);

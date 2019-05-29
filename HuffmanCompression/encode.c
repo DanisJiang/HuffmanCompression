@@ -3,48 +3,84 @@
 #include<stdlib.h>
 #include"encode.h"
 
+
+/*****************************************************************
+*Function:encode
+*Description:加密模块
+*Calls:readFile, frequency
+*Called By:main
+*Input:argv[]
+*Output:NULL
+*Return:void
+*Others:NULL
+*****************************************************************/
 void encode(char *argv[])
 {
 	FILE* inputFp;
 	errno_t err;
-	if (err = fopen_s(&inputFp, argv[2],"r"))
+	if (err = fopen_s(&inputFp, argv[2],"rb"))
 	{
-		printf("error: no such file");
+		printf("error: no such file\n");
 		exit(0);
 	}
 	else
 	{
 		printf("success to open %s\n\n", argv[2]);
 	}
-	char s[1000];
-	if (!readFile(inputFp, s))
+	Contents *content;
+	if(!(content = readFile(inputFp)))
 	{
-		printf("error: failed to read file");
+		printf("error: failed to read file\n");
+		fclose(inputFp);
 		exit(0);
 	}
-	printf("%s",s);
-	//int *freq = frequency();
+	int *freq = frequency(content);
 }
 
-int readFile(FILE *fp, char* s)
+/*****************************************************************
+*Function:readFile
+*Description:获得文本的长度并读取到Contents结构体中
+*Calls:fseek, flen, rewind, malloc, sizeof
+*Called By:encode
+*Input:fp
+*Output:None
+*Return:Contents*
+*Others:None
+*****************************************************************/
+Contents* readFile(FILE *fp)
 {
-	int i = 0;
-	while (fgets(fp, 1000, s+i))
+	int flen;
+	fseek(fp, 0L, SEEK_END);
+	flen = ftell(fp);
+	rewind(fp);
+	char *s = malloc(flen);
+	if (!s)
 	{
-		i += strlen(s);
+		fclose(fp);
+		exit(0);
 	}
+	fread(s, sizeof(char), flen / sizeof(char), fp);
+	Contents* content = (Contents*)malloc(sizeof(Contents));
+	content->size = flen / sizeof(char);
+	content->pt = s;
+	return content;
 }
 
-int* frequency(char* c)
+/*****************************************************************
+*Function:frequency
+*Description:统计每个字符出现次数
+*Calls:
+*Called By:encode
+*Input:Content*
+*Output:NULL
+*Return:void
+*Others:NULL
+*****************************************************************/
+int* frequency(Contents* content)
 {
-	int* a = malloc(sizeof(int) * 256);
-	for (int i = 0; i < 128; i++)
+	content->frequency = malloc(sizeof(int) * 128);
+	for (int i = 0; i < content->size; i++)
 	{
-		a[1 + i * 2] = '0';
-	}
-	int i = 0;
-	while (c[i] != '\0')
-	{
-		
+		content->frequency[content->pt[i]] += 1;
 	}
 }
