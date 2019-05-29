@@ -1,5 +1,6 @@
 ﻿#include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #include"encode.h"
 
 void encode(char *argv[])
@@ -36,5 +37,14 @@ int readFile(FILE *fp, char* s)
 
 int* frequency(char* c)
 {
-	
+	int* a = malloc(sizeof(int) * 256);
+	for (int i = 0; i < 128; i++)
+	{
+		a[1 + i * 2] = '0';
+	}
+	int i = 0;
+	while (c[i] != '\0')
+	{
+		
+	}
 }
