@@ -34,7 +34,14 @@ void encode(char *argv[])
 		fclose(inputFp);
 		exit(0);
 	}
-	int *freq = frequency(content);
+	frequency(content);
+	for (int i = 0; i < 128; i++)
+	{
+		if (content->frequency[i])
+		{
+			printf("\"%c\": %d ", i, content->frequency[i]);
+		}
+	}
 }
 
 /*****************************************************************
@@ -76,9 +83,13 @@ Contents* readFile(FILE *fp)
 *Return:void
 *Others:NULL
 *****************************************************************/
-int* frequency(Contents* content)
+void frequency(Contents* content)
 {
 	content->frequency = malloc(sizeof(int) * 128);
+	for (int i = 0; i < 128; i++)
+	{
+		content->frequency[i] = 0;
+	}
 	for (int i = 0; i < content->size; i++)
 	{
 		content->frequency[content->pt[i]] += 1;

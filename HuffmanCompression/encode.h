@@ -8,6 +8,6 @@ typedef struct Contents
 
 void encode(char *argv[]);
 
-int* frequency(Contents* content);
+void frequency(Contents* content);
 
 Contents* readFile(FILE *fp);
