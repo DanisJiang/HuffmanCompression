@@ -25,7 +25,7 @@ void frequency(Contents* content)
 /*****************************************************************
 *Function:intArray2PNodeArray
 *Description:将每个出现的字符构造成结点，方便后面排序及生成哈夫曼树
-*Calls:
+*Calls:malloc, realloc
 *Called By:encode
 *Input:Content*
 *Output:NULL
@@ -35,19 +35,34 @@ void frequency(Contents* content)
 PNode* intArray2PNodeArray(Contents* content)
 {
 	PNode* a = malloc(0);
+	PNode* new_a;
 	int n = -1;
 	for (int i = 0; i < 128; i++)
 	{
 		if (content->frequency[i])
 		{
 			n++;
-			a = realloc(a, sizeof(PNode));
+			new_a = realloc(a, sizeof(PNode) * (n + 1));
+			if (!new_a)
+			{
+				printf("Error: realloc failed.\n");
+				free(a);
+			}
+			a = new_a;
 			a[n] = malloc(sizeof(Node));
 			a[n]->value = i;
 			a[n]->weight = content->frequency[i];
+			a[n]->LChild = NULL;
+			a[n]->RChild = NULL;
 		}
 	}
-	a = realloc(a, sizeof(PNode));
+	new_a = realloc(a, sizeof(PNode) * (n + 1));
+	if (!new_a)
+	{
+		printf("Error: realloc failed.\n");
+		free(a);
+	}
+	a = new_a;
 	a[++n] = NULL;  // PNode结尾指示符
 	return a;
 }
@@ -55,14 +70,33 @@ PNode* intArray2PNodeArray(Contents* content)
 /*****************************************************************
 *Function:sort
 *Description:按照权值从小到大排序
-*Calls:
+*Calls:NULL
 *Called By:encode
-*Input:PNode
+*Input:PNode*
 *Output:NULL
 *Return:PNode*
 *Others:NULL
 *****************************************************************/
 PNode* sort(PNode* a)
 {
-
+	int i = 0, j = 0;
+	int min;
+	PNode tmp;
+	while (a[i])
+	{
+		j = i + 1;
+		min = a[i]->weight;
+		while (a[j])
+		{
+			if (a[j]->weight < a[i]->weight)
+			{
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp	;
+			}
+			j++;
+		}
+		i++;
+	}
+	return a;
 }

@@ -44,6 +44,7 @@ void encode(char *argv[])
 		}
 	}*/
 	PNode* PNodeArray = intArray2PNodeArray(content);
+	PNodeArray = sort(PNodeArray);
 	int i = 0;
 	while (PNodeArray[i])
 	{
