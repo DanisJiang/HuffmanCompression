@@ -27,12 +27,24 @@
     <ClCompile Include="decode.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="HuffmanTree.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="encode.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="decode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyAnalysis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLOBAL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HuffmanTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

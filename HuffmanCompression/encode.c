@@ -2,11 +2,12 @@
 #include<string.h>
 #include<stdlib.h>
 #include"encode.h"
+#include"FrequencyAnalysis.h"
 
 
 /*****************************************************************
 *Function:encode
-*Description:加密模块
+*Description:编码模块
 *Calls:readFile, frequency
 *Called By:main
 *Input:argv[]
@@ -35,12 +36,19 @@ void encode(char *argv[])
 		exit(0);
 	}
 	frequency(content);
-	for (int i = 0; i < 128; i++)
+	/*for (int i = 0; i < 128; i++)
 	{
 		if (content->frequency[i])
 		{
 			printf("\"%c\": %d ", i, content->frequency[i]);
 		}
+	}*/
+	PNode* PNodeArray = intArray2PNodeArray(content);
+	int i = 0;
+	while (PNodeArray[i])
+	{
+		printf("\"%c\": %d ", PNodeArray[i]->value, PNodeArray[i]->weight);
+		i++;
 	}
 }
 
@@ -71,27 +79,4 @@ Contents* readFile(FILE *fp)
 	content->size = flen / sizeof(char);
 	content->pt = s;
 	return content;
-}
-
-/*****************************************************************
-*Function:frequency
-*Description:统计每个字符出现次数
-*Calls:
-*Called By:encode
-*Input:Content*
-*Output:NULL
-*Return:void
-*Others:NULL
-*****************************************************************/
-void frequency(Contents* content)
-{
-	content->frequency = malloc(sizeof(int) * 128);
-	for (int i = 0; i < 128; i++)
-	{
-		content->frequency[i] = 0;
-	}
-	for (int i = 0; i < content->size; i++)
-	{
-		content->frequency[content->pt[i]] += 1;
-	}
 }
