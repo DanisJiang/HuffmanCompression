@@ -10,6 +10,6 @@ typedef struct HuffmanTreeNode
 {
 	int weight;
 	int value;
-	PNode LChild;
-	PNode RChild;
+	struct HuffmanTreeNode* LChild;
+	struct HuffmanTreeNode* RChild;
 }Node,*PNode;

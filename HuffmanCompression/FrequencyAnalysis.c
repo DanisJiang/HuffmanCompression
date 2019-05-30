@@ -40,8 +40,9 @@ PNode* intArray2PNodeArray(Contents* content)
 	{
 		if (content->frequency[i])
 		{
+			n++;
 			a = realloc(a, sizeof(PNode));
-			a[++n] = malloc(sizeof(Node));
+			a[n] = malloc(sizeof(Node));
 			a[n]->value = i;
 			a[n]->weight = content->frequency[i];
 		}
