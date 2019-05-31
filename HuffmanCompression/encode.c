@@ -36,7 +36,9 @@ void encode(char *argv[])
 		fclose(inputFp);
 		exit(0);
 	}
+	printf("Contents:\n");
 	puts(content->pt);
+	printf("\n");
 	frequency(content);
 	/*for (int i = 0; i < 128; i++)
 	{
@@ -52,9 +54,11 @@ void encode(char *argv[])
 		printf("\" 0x%x \": %d   ", PNodeArray[i]->value, PNodeArray[i]->weight);
 		i++;
 	}
-	printf("\n");
+	printf("\n\n");
 	PNode top = createHuffmanTree(PNodeArray);
 	printHuffmanTree(top);
+	int code[10];
+	createHuffmanCoding(top, content, code, 0);
 }
 
 /*****************************************************************
@@ -73,13 +77,14 @@ Contents* readFile(FILE *fp)
 	fseek(fp, 0L, SEEK_END);
 	flen = ftell(fp);
 	rewind(fp);
-	char *s = malloc(flen);
+	char *s = malloc(flen + 1);
 	if (!s)
 	{
 		fclose(fp);
 		exit(0);
 	}
 	fread(s, sizeof(char), flen / sizeof(char), fp);
+	s[flen / sizeof(char)] = '\x00';
 	Contents* content = (Contents*)malloc(sizeof(Contents));
 	content->size = flen / sizeof(char);
 	content->pt = s;

@@ -1,2 +1,6 @@
-﻿  encode.c
+﻿  FrequencyAnalysis.c
+c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\frequencyanalysis.c(62): warning C4013: “printf”未定义；假设外部返回 int
+c:\users\danisjiang\source\repos\danisjiang\huffmancompression\huffmancompression\frequencyanalysis.c(115): warning C4098: “sort”:“void”函数返回值
+  encode.c
+  正在生成代码...
   HuffmanCompression.vcxproj -> C:\Users\DanisJiang\Source\Repos\DanisJiang\HuffmanCompression\HuffmanCompression\x64\Debug\HuffmanCompression.exe

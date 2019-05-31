@@ -20,9 +20,9 @@ PNode createHuffmanTree(PNode * a)
 
 void printHuffmanTree(PNode top)
 {
-	printf("Inorder:");    InorderTraversal(top);    printf("\n");
-	printf("Preorder:");   PreorderTraversal(top);   printf("\n");
-	printf("Postorder:");  PostorderTraversal(top);  printf("\n");
+	printf("Inorder:");    InorderTraversal(top);    printf("\n\n");
+	printf("Preorder:");   PreorderTraversal(top);   printf("\n\n");
+	printf("Postorder:");  PostorderTraversal(top);  printf("\n\n");
 }
 
 void InorderTraversal(PNode top)
@@ -33,11 +33,11 @@ void InorderTraversal(PNode top)
 			InorderTraversal(top->LChild);
 		if (top->value == -1)
 		{
-			printf("  %d", top->value);
+			printf(",%d", top->value);
 		}
 		else
 		{
-			printf(" '%c'", top->value);
+			printf(",'0x%x'", top->value);
 		}
 		if (top->RChild)
 			InorderTraversal(top->RChild);
@@ -51,11 +51,11 @@ void PreorderTraversal(PNode top)
 	{
 		if (top->value == -1)
 		{
-			printf(" %d", top->value);
+			printf(",%d", top->value);
 		}
 		else
 		{
-			printf(" '%c'", top->value);
+			printf(",'0x%x'", top->value);
 		}
 		if (top->LChild)
 			PreorderTraversal(top->LChild);
@@ -75,17 +75,39 @@ void PostorderTraversal(PNode top)
 			PostorderTraversal(top->RChild);
 		if (top->value == -1)
 		{
-			printf(" %d", top->value);
+			printf(",%d", top->value);
 		}
 		else
 		{
-			printf(" '%c'", top->value);
+			printf(",'0x%x'", top->value);
 		}
 	}
 	return;
 }
 
-int* huffmanCoding(PNode top)
+void createHuffmanCoding(PNode top, Contents* content,int* code ,int n)
 {
-	
+	if (top)
+	{
+		if (top->value != -1)
+		{
+			printf("'0x%x': ", top->value);
+			for (int i = 0; i < n; i++)
+			{
+				content->huffmanCode[top->value][i+1] = code[i];
+				printf("%d", code[i]);
+			}
+		}
+		if (top->LChild)
+		{
+			code[n] = 0;
+			createHuffmanCoding(top->LChild, content, code, n + 1);
+		}
+		if (top->RChild)
+		{
+			code[n] = 1;
+			createHuffmanCoding(top->RChild, content, code, n + 1);
+		}
+	}
+	return;
 }

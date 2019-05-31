@@ -21,6 +21,19 @@ void frequency(Contents* content)
 	{
 		content->frequency[content->pt[i]] += 1;
 	}
+	content->huffmanCode = malloc(sizeof(int*) * 128);
+	for (int i = 0; i < 128; i++)
+	{
+		if (content->frequency[i])
+		{
+			content->huffmanCode[i] = malloc(sizeof(int) * 10);
+			content->huffmanCode[i][0] = 0;  // 第一位保存此字符哈夫曼编码的长度
+		}
+		else
+		{
+			content->huffmanCode[i] = NULL;
+		}
+	}
 }
 
 /*****************************************************************

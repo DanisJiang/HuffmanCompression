@@ -4,6 +4,7 @@ typedef struct Contents
 	int size;
 	char* pt;
 	int* frequency;
+	int** huffmanCode;
 }Contents;
 
 typedef struct HuffmanTreeNode

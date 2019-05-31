@@ -13,4 +13,4 @@ void PostorderTraversal(PNode top);
 
 void printHuffmanTree(PNode top);
 
-int* huffmanCoding(PNode top);
+void createHuffmanCoding(PNode top, Contents* content ,int* code , int n);
