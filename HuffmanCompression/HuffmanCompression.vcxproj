@@ -118,7 +118,7 @@
     <ClCompile Include="decode.c" />
     <ClCompile Include="encode.c" />
     <ClCompile Include="FrequencyAnalysis.c" />
-    <ClCompile Include="HuffmanTree.c" />
+    <ClCompile Include="huffmanTree.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +126,7 @@
     <ClInclude Include="encode.h" />
     <ClInclude Include="FrequencyAnalysis.h" />
     <ClInclude Include="GLOBAL.h" />
-    <ClInclude Include="HuffmanTree.h" />
+    <ClInclude Include="huffmanTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

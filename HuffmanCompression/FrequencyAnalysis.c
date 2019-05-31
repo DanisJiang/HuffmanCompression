@@ -1,4 +1,5 @@
-﻿#include "FrequencyAnalysis.h"
+﻿#include<stdlib.h>
+#include "FrequencyAnalysis.h"
 /*****************************************************************
 *Function:frequency
 *Description:统计每个字符出现次数
@@ -72,14 +73,14 @@ PNode* intArray2PNodeArray(Contents* content)
 *Description:按照权值从小到大排序
 *Calls:NULL
 *Called By:encode
-*Input:PNode*
+*Input:PNode*, int
 *Output:NULL
-*Return:PNode*
+*Return:void
 *Others:NULL
 *****************************************************************/
-PNode* sort(PNode* a)
+void sort(PNode* a, int i)
 {
-	int i = 0, j = 0;
+	int j = 0;
 	int min;
 	PNode tmp;
 	while (a[i])

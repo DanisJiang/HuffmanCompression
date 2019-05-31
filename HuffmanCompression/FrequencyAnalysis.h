@@ -1,9 +1,8 @@
-#pragma once
-#include<stdlib.h>
+﻿#pragma once
 #include "GLOBAL.h"
 
 void frequency(Contents* content);
 
 PNode* intArray2PNodeArray(Contents* content);
 
-PNode* sort(PNode* a);
+void sort(PNode* a,int i);

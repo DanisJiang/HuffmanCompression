@@ -1,3 +1,2 @@
-﻿  FrequencyAnalysis.c
-c:\users\danis\source\repos\danisjiang\huffmancompression\huffmancompression\frequencyanalysis.c(48): warning C4013: “printf”未定义；假设外部返回 int
+﻿  huffmanTree.c
   HuffmanCompression.vcxproj -> C:\Users\danis\Source\Repos\DanisJiang\HuffmanCompression\HuffmanCompression\x64\Debug\HuffmanCompression.exe

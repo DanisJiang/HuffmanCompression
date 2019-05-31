@@ -1,8 +1,9 @@
-﻿#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include"encode.h"
-#include"FrequencyAnalysis.h"
+﻿#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "encode.h"
+#include "FrequencyAnalysis.h"
+#include "HuffmanTree.h"
 
 
 /*****************************************************************
@@ -44,11 +45,15 @@ void encode(char *argv[])
 		}
 	}*/
 	PNode* PNodeArray = intArray2PNodeArray(content);
-	PNodeArray = sort(PNodeArray);
+	createHuffmanTree(PNodeArray);
 	int i = 0;
 	while (PNodeArray[i])
 	{
-		printf("\"%c\": %d ", PNodeArray[i]->value, PNodeArray[i]->weight);
+		if (i % 4 == 0)
+		{
+			printf("\n");
+		}
+		printf("\" %c \": %d   ", PNodeArray[i]->value, PNodeArray[i]->weight);
 		i++;
 	}
 }
