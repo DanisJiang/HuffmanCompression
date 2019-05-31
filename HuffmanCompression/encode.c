@@ -36,6 +36,7 @@ void encode(char *argv[])
 		fclose(inputFp);
 		exit(0);
 	}
+	puts(content->pt);
 	frequency(content);
 	/*for (int i = 0; i < 128; i++)
 	{
@@ -45,17 +46,15 @@ void encode(char *argv[])
 		}
 	}*/
 	PNode* PNodeArray = intArray2PNodeArray(content);
-	createHuffmanTree(PNodeArray);
 	int i = 0;
 	while (PNodeArray[i])
 	{
-		if (i % 4 == 0)
-		{
-			printf("\n");
-		}
-		printf("\" %c \": %d   ", PNodeArray[i]->value, PNodeArray[i]->weight);
+		printf("\" 0x%x \": %d   ", PNodeArray[i]->value, PNodeArray[i]->weight);
 		i++;
 	}
+	printf("\n");
+	PNode top = createHuffmanTree(PNodeArray);
+	printHuffmanTree(top);
 }
 
 /*****************************************************************
