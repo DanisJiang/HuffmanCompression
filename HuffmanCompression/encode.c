@@ -27,7 +27,7 @@ void encode(char *argv[])
 	}
 	else
 	{
-		printf("success to open %s\n\n", argv[2]);
+		printf("[*]success to open %s\n\n", argv[2]);
 	}
 	Contents *content;
 	if(!(content = readFile(inputFp)))
@@ -36,9 +36,10 @@ void encode(char *argv[])
 		fclose(inputFp);
 		exit(0);
 	}
-	printf("Contents:\n");
+	printf("[*]Contents:\n");
 	puts(content->pt);
 	printf("\n");
+	printf("[*]Frequency:\n");
 	frequency(content);
 	/*for (int i = 0; i < 128; i++)
 	{
@@ -56,9 +57,22 @@ void encode(char *argv[])
 	}
 	printf("\n\n");
 	PNode top = createHuffmanTree(PNodeArray);
+	printf("[*]PrintTree:\n");
 	printHuffmanTree(top);
+	printf("[*]HuffmanCode:\n\n");
 	int code[10];
 	createHuffmanCoding(top, content, code, 0);
+	printf("\n\n");
+	for (int i = 0; i < content->size; i++)
+	{
+		for (int j = 0; j < content->huffmanCode[content->pt[i]][0]; j++)
+		{
+			printf("%d", content->huffmanCode[content->pt[i]][j + 1]);
+
+		}
+	}
+	printf("\n\n");
+	printf("Thank u for using! -- Danis Jiang\n");
 }
 
 /*****************************************************************

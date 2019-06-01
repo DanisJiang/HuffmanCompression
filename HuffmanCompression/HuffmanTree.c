@@ -33,7 +33,7 @@ void InorderTraversal(PNode top)
 			InorderTraversal(top->LChild);
 		if (top->value == -1)
 		{
-			printf(",%d", top->value);
+			printf(",N(%d)", top->weight);
 		}
 		else
 		{
@@ -51,7 +51,7 @@ void PreorderTraversal(PNode top)
 	{
 		if (top->value == -1)
 		{
-			printf(",%d", top->value);
+			printf(",N(%d)", top->weight);
 		}
 		else
 		{
@@ -75,7 +75,7 @@ void PostorderTraversal(PNode top)
 			PostorderTraversal(top->RChild);
 		if (top->value == -1)
 		{
-			printf(",%d", top->value);
+			printf(",N(%d)", top->weight);
 		}
 		else
 		{
@@ -92,6 +92,7 @@ void createHuffmanCoding(PNode top, Contents* content,int* code ,int n)
 		if (top->value != -1)
 		{
 			printf("'0x%x': ", top->value);
+			content->huffmanCode[top->value][0] = n;
 			for (int i = 0; i < n; i++)
 			{
 				content->huffmanCode[top->value][i+1] = code[i];
