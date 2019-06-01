@@ -4,8 +4,17 @@
 #include "encode.h"
 #include "decode.h"
 
-void error();
 
+/*****************************************************************
+*Function:main
+*Description:主函数
+*Calls:encode, decode, error
+*Called By:None
+*Input:int, int*
+*Output:None
+*Return:void
+*Others:None
+*****************************************************************/
 int main(int argc, char *argv[])
 {
 	if (argc != 4)
@@ -29,10 +38,20 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
+/*****************************************************************
+*Function:error
+*Description:Usage
+*Calls:printf
+*Called By:main
+*Input:void
+*Output:info
+*Return:void
+*Others:None
+*****************************************************************/
 void error()
 {
 
-	printf("\nHuffmanCompression Beta 0.0.0\n");
+	printf("\nHuffmanCompression Beta 1.0\n");
 	printf("Author: Danis Jiang\n");
 	printf("https://github.com/DanisJiang/HuffmanCompression.git \n\n");
 	printf("Usage: .\HuffmanCompression.exe [OPTIONS] [INPUT FILE] [OUTPUT FILE]\n\n");

@@ -12,7 +12,7 @@
 *Calls:readFile, frequency
 *Called By:main
 *Input:argv[]
-*Output:NULL
+*Output:哈夫曼编码
 *Return:void
 *Others:NULL
 *****************************************************************/
@@ -41,13 +41,6 @@ void encode(char *argv[])
 	printf("\n");
 	printf("[*]Frequency:\n");
 	frequency(content);
-	/*for (int i = 0; i < 128; i++)
-	{
-		if (content->frequency[i])
-		{
-			printf("\"%c\": %d ", i, content->frequency[i]);
-		}
-	}*/
 	PNode* PNodeArray = intArray2PNodeArray(content);
 	int i = 0;
 	while (PNodeArray[i])
