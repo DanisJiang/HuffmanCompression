@@ -21,8 +21,10 @@ https://github.com/DanisJiang/HuffmanCompression.git
 Usage: .HuffmanCompression.exe [OPTIONS] [INPUT FILE]
 
 General Options:
-        -e              Encode
-        -d              Decode [TODO]
+
+​        -e              Encode
+
+​        -d              Decode [TODO]
 
 
 
