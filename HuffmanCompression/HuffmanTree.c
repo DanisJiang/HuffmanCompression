@@ -40,8 +40,8 @@ PNode createHuffmanTree(PNode * a)
 *****************************************************************/
 void printHuffmanTree(PNode top)
 {
-	printf("Inorder:");    InorderTraversal(top);    printf("\n\n");
-	printf("Preorder:");   PreorderTraversal(top);   printf("\n\n");
+	printf("Inorder:");    InorderTraversal(top);    printf("\n");
+	printf("Preorder:");   PreorderTraversal(top);   printf("\n");
 	printf("Postorder:");  PostorderTraversal(top);  printf("\n\n");
 }
 

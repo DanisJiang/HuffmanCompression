@@ -22,20 +22,22 @@ void encode(char *argv[])
 	errno_t err;
 	if (err = fopen_s(&inputFp, argv[2],"rb"))
 	{
-		printf("error: no such file\n");
-		exit(0);
+		printf("[*]Error: no such file\n");
+		error();
 	}
 	else
 	{
-		printf("[*]success to open %s\n\n", argv[2]);
+		printf("[*]Success to open %s\n", argv[2]);
 	}
 	Contents *content;
 	if(!(content = readFile(inputFp)))
 	{
-		printf("error: failed to read file\n");
+		printf("[*]Error: failed to read file\n");
 		fclose(inputFp);
-		exit(0);
+		error();
 	}
+	fclose(inputFp);
+	printf("[*]Close the file\n\n");
 	printf("[*]Contents:\n");
 	puts(content->pt);
 	printf("\n");
@@ -52,10 +54,11 @@ void encode(char *argv[])
 	PNode top = createHuffmanTree(PNodeArray);
 	printf("[*]PrintTree:\n");
 	printHuffmanTree(top);
-	printf("[*]HuffmanCode:\n\n");
+	printf("[*]HuffmanCode:\n");
 	int code[10];
 	createHuffmanCoding(top, content, code, 0);
 	printf("\n\n");
+	printf("[*]Output:\n");
 	for (int i = 0; i < content->size; i++)
 	{
 		for (int j = 0; j < content->huffmanCode[content->pt[i]][0]; j++)
@@ -65,6 +68,7 @@ void encode(char *argv[])
 		}
 	}
 	printf("\n\n");
+	clear(content, top);
 	printf("Thank u for using! -- Danis Jiang\n");
 }
 
@@ -96,4 +100,34 @@ Contents* readFile(FILE *fp)
 	content->size = flen / sizeof(char);
 	content->pt = s;
 	return content;
+}
+
+/*****************************************************************
+*Function:clear
+*Description:清空所有指针
+*Calls:free, printf
+*Called By:encode
+*Input:Contents*, PNode
+*Output:clear
+*Return:void
+*Others:None
+*****************************************************************/
+void clear(Contents* content, PNode top)
+{
+	printf("[*]Start to clear memory...\n");
+	printf("[*]Clear content->pt\n");
+	free(content->pt);
+	printf("[*]Clear content->huffmancode\n");
+	for (int i = 0; i < 128; i++)
+	{
+		if (content->frequency[i])
+		{
+			free(content->huffmanCode[i]);
+		}
+	}
+	free(content->huffmanCode);
+	printf("[*]Clear content->frequency\n");
+	free(content->frequency);
+	printf("[*]Clear content->content\n\n");
+	free(content);
 }
