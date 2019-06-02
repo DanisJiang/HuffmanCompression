@@ -15,16 +15,18 @@
 ```
 
 HuffmanCompression Beta 1.1
+
 Author: Danis Jiang
+
 https://github.com/DanisJiang/HuffmanCompression.git
 
 Usage: .HuffmanCompression.exe [OPTIONS] [INPUT FILE]
 
 General Options:
 
-​        -e              Encode
+​	        -e              Encode
 
-​        -d              Decode [TODO]
+​	        -d              Decode [TODO]
 
 
 
