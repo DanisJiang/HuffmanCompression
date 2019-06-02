@@ -61,7 +61,7 @@ void error()
 	printf(" |_____/ \\__,_|_| |_|_|___/  \\____/|_|\\__,_|_| |_|\\__, |"); printf("\n");
 	printf("                                                   __/ |"); printf("\n");
 	printf("                                                  |___/ "); printf("\n");
-	printf("\nHuffmanCompression Beta 1.0\n");
+	printf("\nHuffmanCompression Beta 1.1\n");
 	printf("Author: Danis Jiang\n");
 	printf("https://github.com/DanisJiang/HuffmanCompression.git \n\n");
 	printf("Usage: .\HuffmanCompression.exe [OPTIONS] [INPUT FILE]\n\n");
