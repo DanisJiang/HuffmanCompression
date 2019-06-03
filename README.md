@@ -1,7 +1,7 @@
 ﻿# HuffmanCompression
 * C
 * This is a project I have done by myself on Data-Structure class
-* I am happy to have someone use my code (as a homework).
+* I am glad if someone use my code (any method).
 * And  I hope someone can perfect it (decode module).
 ```
   _____              _            _ _
